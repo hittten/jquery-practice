@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajax and Forms</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<h1>Ajax and Forms</h1>
+
+<h2>Getting data</h2>
+<ul id="products"></ul>
+
+<div id="htmlPage"></div>
+
+<img class="spinner" src="spinner.gif" alt="loading" width="50px">
+
+<form id="myForm">
+    <p>
+        <label>
+            name:
+            <input type="text" name="name">
+        </label>
+    </p>
+    <p>
+        <label>
+            price:
+            <input type="text" name="price">
+        </label>
+    </p>
+    <p>
+        <label>
+            description:
+            <input type="text" name="description">
+        </label>
+    </p>
+    <p>
+        <button type="submit">Enviar</button>
+    </p>
+</form>
+
+<p>
+    <a href="../">home</a>
+    <a href="url-params.html">params</a>
+    <a href="https://learn.jquery.com/ajax/ajax-and-forms/" target="_blank">more</a>
+    <a href="https://api.jquery.com/category/ajax/" target="_blank">ajax api</a>
+</p>
+
+<script type="application/javascript">
+    // getting json file
+    $.get("products.json", function (products) {
+        const productsHtml = $("#products").html('')
+        console.log(products)
+
+        $.each(products, function (i, product) {
+            productsHtml.append(`<li>${product.name}, ${product.price}€</li>`);
+        })
+    })
+        .done(function () {
+            console.log('ok!')
+        })
+        .fail(function (e) {
+            console.log("error", e);
+        })
+        .always(function () {
+            $('.spinner').hide()
+        });
+
+    // getting html file
+    $.get("test.html", function (data) {
+        $("#htmlPage").html(data);
+    });
+
+    // sending json file
+    const form = $("#myForm")
+
+    form.submit(function (e) {
+        e.preventDefault()
+        const data = form.serializeArray();
+        const data1 = form.serialize();
+
+        console.log(data);
+        console.log(data1);
+
+        // $.post("", data)
+        //     .done(function (data) {
+        //         console.log(data)
+        //     });
+    })
+</script>
+</body>
+</html>
