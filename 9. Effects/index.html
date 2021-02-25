@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Effects</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<h1>Effects</h1>
+
+<p>paragraph 1</p>
+<p>paragraph 2</p>
+<p>paragraph 3</p>
+
+<button id="hideButton">hide paragraph 1</button>
+<button id="showButton">show paragraph 1</button>
+<button id="slideUpButton">slideUp 800 paragraph 1</button>
+<button id="toggleUpButton">toggle paragraph 1</button>
+
+<p>
+    <a href="../">home</a>
+    <a href="https://learn.jquery.com/effects/intro-to-effects/" target="_blank">more</a>
+</p>
+
+<script type="application/javascript">
+    const firstParagraph = $("p:first")
+
+    $("#hideButton").click(function () {
+        firstParagraph.hide(500)
+    });
+    $("#showButton").click(function () {
+        firstParagraph.show("fast")
+    });
+    $("#slideUpButton").click(function () {
+        firstParagraph.slideDown(800)
+    });
+    $("#toggleUpButton").click(function () {
+        firstParagraph.toggle()
+    });
+
+</script>
+</body>
+</html>
