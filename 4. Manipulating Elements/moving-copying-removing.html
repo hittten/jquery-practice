@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Moving, Copying, and Removing Elements</title>
+</head>
+<body>
+<h1>Manipulating Elements</h1>
+<h2>Moving, Copying, and Removing Elements</h2>
+<ol id="myList">
+    <li>one</li>
+    <li>two</li>
+    <li>three</li>
+    <li>four</li>
+    <li>five</li>
+</ol>
+<h2>Cloning Elements</h2>
+<ol id="myList2">
+    <li>one</li>
+    <li>two</li>
+    <li>three</li>
+    <li>four</li>
+    <li>five</li>
+</ol>
+<h2>Removing Elements</h2>
+<ol id="myList3">
+    <li>one</li>
+    <li>two</li>
+    <li>three</li>
+    <li>four</li>
+    <li>five</li>
+</ol>
+<h2>Creating New Elements</h2>
+<ol id="myList4">
+    <li>one</li>
+    <li>two</li>
+    <li>three</li>
+    <li>four</li>
+    <li>five</li>
+</ol>
+
+
+<a href="index.html">back</a>
+<a href="../">home</a>
+<script type="application/javascript">
+    // Moving elements using different approaches.
+
+    // Make the first list item the last list item:
+    const li = $("#myList li:first").appendTo("#myList");
+
+    // Another approach to the same problem:
+    // $("#myList").append($("#myList li:first"));
+
+    // Note that there's no way to access the list item
+    // that we moved, as this returns the list itself.
+
+    // cloning
+    $("#myList2 li:last-child").clone().prependTo("#myList2");
+
+    // removing
+    $("#myList3 li:nth-child(2)").remove();
+
+    // Creating new elements from an HTML string.
+    const p = $("<p>This is a new paragraph</p>");
+    const newLi = $("<li class=\"new\">new list item</li>");
+    // Creating a new element with an attribute object.
+    const a = $("<a/>", {
+        html: "This is a <strong>new</strong> link",
+        "class": "new",
+        href: "foo.html"
+    });
+    const myList4 = $("#myList4");
+    myList4.before(p);
+    myList4.append(newLi);
+    myList4.after(a);
+
+</script>
+</body>
+</html>

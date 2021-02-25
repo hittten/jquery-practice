@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Selecting Elements</title>
+</head>
+<body>
+<h1>Manipulating Elements</h1>
+<h2>Getting and Setting Information About Elements</h2>
+<ol id="myOl">
+    <li>.html() – Get or set the HTML contents.</li>
+    <li>.text() – Get or set the text contents; HTML will be stripped.</li>
+    <li>.attr() – Get or set the value of the provided attribute.</li>
+    <li>.width() – Get or set the width in pixels of the first element in the selection as an integer.</li>
+    <li>.height() – Get or set the height in pixels of the first element in the selection as an integer.</li>
+    <li>.position() – Get an object with position information for the first element in the selection, relative to its
+        first positioned ancestor. This is a getter only.
+    </li>
+    <li>
+        <p>.val() – Get or set the value of form elements.</p>
+        <label>
+            some input
+            <input value="current value">
+        </label>
+    </li>
+</ol>
+
+<a href="index.html">back</a>
+<a href="../">home</a>
+<script type="application/javascript">
+
+    $("#myOl li:first").html("New <strong>first</strong> list element!");
+    $("#myOl li:nth-child(2)").text("New <strong>second</strong> list element!");
+    $("#myOl li:nth-child(3)").attr("title", "title for third list element");
+    $("#myOl li:nth-child(4)").width("100px");
+    $("#myOl li:nth-child(5)").height("100px");
+
+    const sixthLi = $("#myOl li:nth-child(6)");
+    const liPosition = sixthLi.position();
+    sixthLi.text(sixthLi.text() + "left: " + liPosition.left + ", top: " + liPosition.top);
+
+    const lastChildVal = $("#myOl li:last-child input").val();
+    console.log(lastChildVal);
+
+
+</script>
+</body>
+</html>

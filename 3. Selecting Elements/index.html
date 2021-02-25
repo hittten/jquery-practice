@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Selecting Elements</title>
+</head>
+<body>
+<h1>Selecting Elements</h1>
+
+<p id="first">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ad aliquam at dicta dolores et expedita hic in
+    magni non odio, optio possimus quod quos soluta unde ut? Odit, voluptates.</p>
+
+<p class="second">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ad aliquam at dicta dolores et expedita
+    hic in
+    magni non odio, optio possimus quod quos soluta unde ut? Odit, voluptates.</p>
+
+<p>
+    <label>
+        first name
+        <input name="first_name" placeholder="first name">
+    </label>
+</p>
+<p>
+    <label>
+        last name
+        <input name="last_name" placeholder="last name">
+    </label>
+</p>
+
+<section id="contents">
+    <ul class="people">
+        <li>first</li>
+        <li>second</li>
+        <li>third</li>
+        <li>fourth</li>
+    </ul>
+</section>
+
+<a href="../">home</a>
+<a href="https://learn.jquery.com/using-jquery-core/selecting-elements/">more</a>
+<script type="application/javascript">
+    $('#first').css('background', 'red')
+    $('.second').css('background', 'green')
+    $("input[name='first_name']").css('background', 'grey')
+    const li = $("#contents ul.people li");
+    console.log(li);
+
+    // Doesn't work!
+    if ($("div.foo")) {
+        console.log('bad practice!!!')
+    }
+    if ($("ul li").length) {
+        console.log('perfect')
+    }
+</script>
+</body>
+</html>

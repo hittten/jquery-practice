@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Data Methods</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<h1>Data Methods</h1>
+<div id="myDiv">
+    <ul id="myList">
+        <li><span class="content">1</span> one</li>
+        <li><span>2</span> two</li>
+        <li><span class="content">3</span> three</li>
+    </ul>
+</div>
+
+<p>
+    <a href="../">home</a>
+    <a href="https://learn.jquery.com/using-jquery-core/data-methods/" target="_blank">more</a>
+</p>
+
+<script type="application/javascript">
+    // Storing and retrieving data related to an element.
+    const myDiv = $("#myDiv");
+
+    myDiv.data("keyName", {foo: "bar"});
+    myDiv.data("other", true);
+
+    const value = myDiv.data("keyName"); // Returns { foo: "bar" }
+    const other = myDiv.data("other");
+
+    // Storing a relationship between elements using .data()
+    $("#myList li").each(function () {
+        const li = $(this);
+        const div = li.find("span.content");
+
+        li.data("contentDiv", div);
+    });
+
+    // Later, we don't have to find the div again;
+    // we can just read it from the list item's data
+    const firstLi = $("#myList li:first");
+    const lastLi = $("#myList li:last-child").data('contentDiv');
+
+    firstLi.data("contentDiv").html("new content");
+</script>
+</body>
+</html>

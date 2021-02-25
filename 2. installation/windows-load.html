@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Windows Load</title>
+    <script type="application/javascript">
+        console.log('init script')
+        $('.two').text('Hello, Jquery world')
+        window.onload = function() {
+            console.log('window onload')
+            $('.one').text('Hello, Jquery world')
+        };
+        console.log('end script')
+    </script>
+</head>
+<body>
+<img src="https://learn.jquery.com/jquery-wp-content/themes/jquery/images/logo-jquery.png" alt="logo jquery" style="background: black">
+<h1>Windows load</h1>
+<p class="one">Hello without jquery</p>
+<p class="two">Hello without jquery</p>
+<a href="index.html">back</a>
+<a href="../">home</a>
+</body>
+</html>

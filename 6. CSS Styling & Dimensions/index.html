@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS, Styling, & Dimensions</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<h1>CSS, Styling, & Dimensions</h1>
+
+<p>
+    <a href="../">home</a>
+    <a href="https://learn.jquery.com/using-jquery-core/css-styling-dimensions/" target="_blank">more</a>
+</p>
+
+<script type="application/javascript">
+    // Getting CSS properties.
+    const h1 = $("h1");
+    const css1 = h1.css("fontSize"); // Returns a string such as "19px".
+    const css2 = h1.css("font-size"); // Also works.
+
+    // Setting CSS properties.
+    h1.css("fontSize", "100px"); // Setting an individual property.
+    const css3 = h1.css("font-size"); // Also works.
+
+    // Setting multiple properties.
+    h1.css({
+        fontSize: "100px",
+        color: "red"
+    });
+
+    // Working with classes.
+
+    h1.addClass("big");
+    h1.removeClass("big");
+    h1.toggleClass("big");
+
+    if (h1.hasClass("big")) {
+        console.log('h1 has class "big"')
+    } else {
+        console.log('h1 no has class "big"')
+    }
+</script>
+</body>
+</html>

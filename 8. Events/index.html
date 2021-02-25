@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Events</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<h1>Events</h1>
+
+<p>paragraph 1</p>
+<p>paragraph 2</p>
+<p>paragraph 3</p>
+
+<div class="propagation">
+    <p>propagation</p>
+</div>
+
+<div class="mouse">
+    <p>mouse</p>
+</div>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+</ul>
+
+<a class="google" href="http://google.es" target="_blank">Google</a>
+
+<p>
+    <a href="../">home</a>
+    <a href="https://learn.jquery.com/events/event-basics/" target="_blank">more</a>
+</p>
+
+<script type="application/javascript">
+    // Event setup using a convenience method
+    $("p").click(function () {
+        console.log("You clicked a paragraph");
+    });
+    // Equivalent event setup using the `.on()` method
+    $("li").on("click", function () {
+        console.log("click li");
+    });
+
+    // Sets up click behavior on all button elements with the alert class
+    // that exist in the DOM when the instruction was executed
+    $("button.alert").on("click", function () {
+        console.log("A button with the alert class was clicked!");
+    });
+
+    // Now create a new button element with the alert class. This button
+    // was created after the click listeners were applied above, so it
+    // will not have the same click behavior as its peers
+    $("<button class='alert'>Alert!</button>").appendTo(document.body);
+
+
+    // propagation
+    $("div.propagation").click(function () {
+        console.log("div.propagation was clicked");
+    });
+    $("div.propagation p").click(function (event) {
+        event.stopPropagation();
+        console.log("div.propagation p was clicked");
+    });
+
+    // prevent default
+    $(".google").click(function (event) {
+        event.preventDefault();
+
+        // Log the event object for inspectin'
+        console.log(event);
+    });
+
+    // mouse event
+    $("div.mouse").on({
+        mouseenter: function (e) {
+            console.log(e)
+            console.log("hovered over a div");
+        },
+        mouseleave: function () {
+            console.log("mouse left a div");
+        },
+        click: function () {
+            console.log("clicked on a div");
+        }
+    });
+
+    // Disconnecting Events
+    // $("p").off("click");
+</script>
+</body>
+</html>
