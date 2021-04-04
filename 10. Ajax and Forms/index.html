@@ -51,7 +51,8 @@
 
 <script type="application/javascript">
     // getting json file
-    $.get("products.json", function (products) {
+    console.log('init')
+    $.get("https://gil-bootcamp-angular.web.app/api/products/gilberto", function (products) {
         const productsHtml = $("#products").html('')
         console.log(products)
 
@@ -85,11 +86,15 @@
         console.log(data);
         console.log(data1);
 
-        // $.post("", data)
-        //     .done(function (data) {
-        //         console.log(data)
-        //     });
+
+
+        $.post("https://gil-bootcamp-angular.web.app/api/products/gilberto", data)
+            .done(function (data) {
+                console.log(data)
+            });
     })
+
+    console.log('end')
 </script>
 </body>
 </html>
